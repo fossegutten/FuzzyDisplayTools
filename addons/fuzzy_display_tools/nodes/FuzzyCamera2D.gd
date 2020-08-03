@@ -1,22 +1,12 @@
 extends Camera2D
 class_name FuzzyCamera2D
 
-## Features:
-# No jittering
-# No 1-frame lag/delay, like default camera ( If used properly )
-# Virtual size support, automatically zooms in to get the specified resolution.
-
-## HOWTO use this script:
-#  Create a camera follow target node, and set it from editor or script.
-#  Put the camera last in the scene tree, because it should process after the follow target node.
-#  The two previous steps fixes the issue where default camera lags 1 frame behind.
-#  Manipulating regular zoom values does nothing, use zoom_f instead
 
 export (NodePath) var follow_target_path : NodePath
 var follow_target : Node2D
 
 
-export (bool) var use_virtual_size := false
+export (bool) var use_virtual_size := true
 export (Vector2) var virtual_size := Vector2(320, 180)
 export (float, EXP, 0.01, 10.0) var zoom_f := 1.0
 

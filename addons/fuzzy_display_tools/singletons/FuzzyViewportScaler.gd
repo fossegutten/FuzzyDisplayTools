@@ -9,7 +9,6 @@ signal viewport_resized(scale)
 #  Add to AutoLoad in ProjectSettings (automatic if using the plugin)
 #  Set base window size in ProjectSettings -> Window
 #  Use stretch mode 'viewport' and aspect 'ignore' in ProjectSettings -> Window
-#  asd
 
 onready var viewport = get_viewport()
 onready var game_size : Vector2 = Vector2(
@@ -17,11 +16,9 @@ onready var game_size : Vector2 = Vector2(
 		ProjectSettings.get("display/window/size/height")
 )
 enum ScaleMode {
-#	PIXEL_PERFECT,
 	STRETCH,
 	KEEP_ASPECT,
-	KEEP_HEIGHT,
-	KEEP_WIDTH
+	INTEGER_SCALING
 }
 export(ScaleMode) var scale_mode : int = ScaleMode.STRETCH setget set_scale_mode, get_scale_mode
 export(bool) var pixel_perfect : bool = false setget set_pixel_perfect, is_pixel_perfect
@@ -34,8 +31,7 @@ func _ready():
 	
 	if ProjectSettings.has_setting("display/fuzzy_display_tools/pixel_perfect"):
 		pixel_perfect = ProjectSettings.get("display/fuzzy_display_tools/pixel_perfect")
-	if ProjectSettings.has_setting("display/fuzzy_display_tools/pixel_perfect"):
-		print(ProjectSettings.get("display/fuzzy_display_tools/scale_mode"))
+	if ProjectSettings.has_setting("display/fuzzy_display_tools/scale_mode"):
 		scale_mode = ProjectSettings.get("display/fuzzy_display_tools/scale_mode")
 	
 	update_viewport_rect()
@@ -77,16 +73,17 @@ func update_viewport_rect() -> void:
 	var scale_target : Vector2
 	
 	match scale_mode:
-#		ScaleMode.PIXEL_PERFECT:
-#			scale_target = Vector2.ONE * max(1, min(floor(window_viewport_scale.x), floor(window_viewport_scale.y)))
 		ScaleMode.STRETCH:
-			scale_target = Vector2(max(1, window_viewport_scale.x), max(1, window_viewport_scale.y))
+			scale_target = Vector2(window_viewport_scale.x, window_viewport_scale.y)
+		ScaleMode.INTEGER_SCALING:
+			scale_target = Vector2.ONE * floor(min(window_viewport_scale.x, window_viewport_scale.y))
 		ScaleMode.KEEP_ASPECT:
-			scale_target = Vector2.ONE * max(1, min(window_viewport_scale.x, window_viewport_scale.y))
-		ScaleMode.KEEP_HEIGHT:
-			scale_target = Vector2.ONE * max(1, min(window_viewport_scale.y, window_viewport_scale.y))
-		ScaleMode.KEEP_WIDTH:
-			scale_target = Vector2.ONE * max(1, min(window_viewport_scale.x, window_viewport_scale.x))
+			scale_target = Vector2.ONE * min(window_viewport_scale.x, window_viewport_scale.y)
+	
+	# Clamp to 1
+	scale_target.x = max(1, scale_target.x)
+	scale_target.y = max(1, scale_target.y)
+	
 	
 	var target_rect : Rect2 = Rect2()
 	# size will be divided by two when calculating position, so snap by two pixels to avoid weird results

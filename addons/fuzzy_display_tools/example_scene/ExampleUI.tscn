@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/fuzzy_display_tools/example_scene/ExampleUI.gd" type="Script" id=1]
+
+[node name="ExampleUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "This is UI scene"
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -175.0
+margin_bottom = 20.0
+text = "Fullscreen"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

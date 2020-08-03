@@ -1,0 +1,212 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/fuzzy_display_tools/nodes/FuzzyCamera2D.gd" type="Script" id=1]
+[ext_resource path="res://addons/fuzzy_display_tools/nodes/FuzzyViewportContainer.gd" type="Script" id=2]
+[ext_resource path="res://addons/fuzzy_display_tools/nodes/FuzzyViewport.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://addons/fuzzy_display_tools/example_scene/Player.gd" type="Script" id=5]
+[ext_resource path="res://addons/fuzzy_display_tools/example_scene/ExampleUI.tscn" type="PackedScene" id=6]
+
+[node name="FuzzyDisplayToolsExample" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FuzzyViewportContainer" type="ViewportContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuzzyViewport" type="Viewport" parent="CanvasLayer/FuzzyViewportContainer"]
+size = Vector2( 640, 360 )
+transparent_bg = true
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+script = ExtResource( 3 )
+
+[node name="ExampleUI" parent="CanvasLayer/FuzzyViewportContainer/FuzzyViewport" instance=ExtResource( 6 )]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="icon" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 90.2015, 40.223 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon2" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 245.752, 88.5494 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon3" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 97.7524, 153.488 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon4" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 253.303, 179.161 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon5" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 355.997, 35.6924 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon6" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 511.547, 84.0188 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon7" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 363.547, 148.957 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon8" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 519.098, 174.631 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon9" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 301.629, 194.263 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon10" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 457.18, 242.59 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon11" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 309.18, 307.528 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon12" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 464.731, 333.202 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon13" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 72.0791, 209.365 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon14" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 227.63, 257.692 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon15" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 79.6301, 322.63 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon16" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 235.181, 348.304 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon17" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 417.915, 230.508 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon18" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 573.465, 278.834 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon19" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 425.466, 343.773 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon20" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 581.016, 369.446 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon21" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 487.384, 3.97827 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon22" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 644.444, 52.3046 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon23" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 494.935, 117.243 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon24" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 650.485, 142.917 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon25" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 198.936, -44.3481 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon26" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 354.486, 3.97826 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon27" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 206.487, 68.9168 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="icon28" type="Sprite" parent="Level"]
+modulate = Color( 0.0823529, 0.572549, 0.0235294, 1 )
+position = Vector2( 362.037, 94.5902 )
+scale = Vector2( 2.20816, 1.35867 )
+texture = ExtResource( 4 )
+
+[node name="Player" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="FuzzyCamera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 1 )
+follow_target_path = NodePath("../Player")
+virtual_size = Vector2( 640, 360 )
