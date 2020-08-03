@@ -1,5 +1,7 @@
 # FuzzyDisplayTools
- Addon for Godot Engine 3.x
+* Addon for Godot Engine 3.1 and 3.2
+* Display tools, mostly for 2D games, especially good for pixel art.
+* Includes an improved Camera2D and a convenient singleton with automatic viewport resizing.
 
 ## Features:
 ### FuzzyViewportScaler - Singleton:
@@ -8,7 +10,7 @@
     * Pixel perfect mode is also possible, for the purist!
 
 ### FuzzyCamera2D
-* No jittering
+* No jittering.
 * No 1-frame lag/delay, like default camera ( If used properly ).
 * Virtual size support, automatically zooms in to get the specified resolution.
 
@@ -16,9 +18,6 @@
 * Utility scripts, to automatically resize UI viewport when needed (after FuzzyViewportScaler updates scale).
     * Updates ViewportContainer shrink automatically.
 
-## HOWTO:
-#  For UI / Control nodes. To have a fixed size UI.
-#  
 ## Initial Setup:
 ### ProjectSettings required settings:
 * "display/window/stretch/mode" = "viewport"
