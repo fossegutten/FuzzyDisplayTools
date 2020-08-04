@@ -5,11 +5,6 @@ signal viewport_resized(scale)
 ## TODO in 4.0: 
 #  Check if removing black bars work
 
-## HOWTO:
-#  Add to AutoLoad in ProjectSettings (automatic if using the plugin)
-#  Set base window size in ProjectSettings -> Window
-#  Use stretch mode 'viewport' and aspect 'ignore' in ProjectSettings -> Window
-
 onready var viewport = get_viewport()
 onready var game_size : Vector2 = Vector2(
 		ProjectSettings.get("display/window/size/width"), 
@@ -84,13 +79,11 @@ func update_viewport_rect() -> void:
 	scale_target.x = max(1, scale_target.x)
 	scale_target.y = max(1, scale_target.y)
 	
-	
 	var target_rect : Rect2 = Rect2()
 	# size will be divided by two when calculating position, so snap by two pixels to avoid weird results
-	target_rect.size = (viewport.size * scale_target).snapped(Vector2.ONE * 2) 
+	target_rect.size = (viewport.size * scale_target).snapped(Vector2.ONE * 2)
 	# floor window size, so we always go to the top left pixel, instead of jagging back and forth
-	target_rect.position = (window_size / 2).floor() - (target_rect.size / 2) 
-	
+	target_rect.position = (window_size / 2).floor() - (target_rect.size / 2)
 	# attach the viewport to the rect we calculated
 	viewport.set_attach_to_screen_rect(target_rect)
 	

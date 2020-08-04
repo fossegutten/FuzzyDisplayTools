@@ -5,7 +5,7 @@
 
 ## Features:
 ### FuzzyViewportScaler - Singleton:
-* Automatically resizes the main viewport, calculated from window size.
+* Automatically resizes the main viewport, calculated from base window size in ProjectSettings.
     * Support for stretch, keep aspect and integer scaling.
     * Pixel perfect mode is also possible, for the purist!
 
@@ -29,6 +29,9 @@
 * "display/window/size/width" = 320 / 640 etc.
 * "display/window/size/height" = 180 / 360 etc.
     * Some low resolution with 16/9 aspect ratio values is recommended, for modern monitors.
+* "rendering/quality/dynamic_fonts/use_oversampling" = false
+    * Removes annoying warnings from the Debugger, when resizing window.
+
 
 ## How to use:
 ### FuzzyViewportScaler - Singleton:
@@ -41,7 +44,7 @@
 * Using virtual size is strongly recommended. Set it to same values (or 50% / 25% etc.) as window size in ProjectSettings, to get the best results.
     * Especially useful if not using pixel perfect mode.
 * Use zoom_f (float) parameter instead of regular zoom (Vector2). Adjusting regular zoom values does nothing.
-* Create a camera follow target node, and set it from editor or script.
+* Create a camera follow target node, and set from editor or script.
 * Put the camera last in the scene tree, because it should process after the follow target node. This fixes the 1 frame lag/delay from default camera.
 
 ### FuzzyViewportContainer and FuzzyViewport:

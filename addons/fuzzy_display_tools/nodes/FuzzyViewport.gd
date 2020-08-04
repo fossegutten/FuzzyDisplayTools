@@ -10,7 +10,7 @@ export (bool) var reset_size_button := false setget reset_size_hack
 func reset_size_hack(value : bool) -> void:
 	if value:
 		size = get_main_viewport_size()
-		print_debug("%s size changed to: %s. Select another node to update Inspector." % [self.name, size])
+		print("%s size changed to: %s. Select another node to update Inspector." % [self.name, size])
 	reset_size_button = false
 
 

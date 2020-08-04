@@ -17,10 +17,12 @@ func _ready():
 
 
 func _process(delta):
-	if is_instance_valid(follow_target):
-		global_position = follow_target.position
-	else:
+	
+	if !is_instance_valid(follow_target):
 		follow_target = get_node(follow_target_path)
+	
+	if follow_target:
+		global_position = follow_target.position
 	
 	if use_virtual_size and !is_zero_approx(zoom_f):
 		zoom = Vector2(virtual_size.round() / get_viewport().size) / zoom_f
