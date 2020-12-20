@@ -29,9 +29,16 @@ func _process(delta):
 	else:
 		zoom = Vector2.ONE * zoom_f
 	
+	snap_and_update_scroll()
+
+
+# eliminates the jagging
+func snap_and_update_scroll() -> void:
+	var old_pos := global_position
 	global_position = global_position.snapped(zoom)
 	
 	force_update_scroll()
+	global_position = old_pos
 
 
 func get_camera_size() -> Vector2:

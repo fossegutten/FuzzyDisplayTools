@@ -18,14 +18,14 @@ text = "This is UI"
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -160.0
-margin_bottom = 88.0
+margin_left = -174.0
+margin_bottom = 132.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FullscreenButton" type="Button" parent="VBoxContainer"]
-margin_right = 160.0
+margin_right = 174.0
 margin_bottom = 20.0
 text = "Fullscreen"
 __meta__ = {
@@ -34,10 +34,10 @@ __meta__ = {
 
 [node name="ScaleModeOptionButton" type="OptionButton" parent="VBoxContainer"]
 margin_top = 24.0
-margin_right = 160.0
+margin_right = 174.0
 margin_bottom = 44.0
 text = "Stretch"
-items = [ "Stretch", null, false, 0, null, "Keep Aspect", null, false, 1, null, "Integer Scaling", null, false, 2, null ]
+items = [ "Stretch", null, false, 0, null, "Keep Aspect", null, false, 1, null ]
 selected = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,9 +45,17 @@ __meta__ = {
 
 [node name="PixelPerfectButton" type="CheckButton" parent="VBoxContainer"]
 margin_top = 48.0
-margin_right = 160.0
+margin_right = 174.0
 margin_bottom = 88.0
 text = "Pixel Perfect"
+
+[node name="IntegerScalingButton" type="CheckButton" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 174.0
+margin_bottom = 132.0
+text = "Integer Scaling"
+
 [connection signal="pressed" from="VBoxContainer/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]
 [connection signal="item_selected" from="VBoxContainer/ScaleModeOptionButton" to="." method="_on_ScaleModeOptionButton_item_selected"]
 [connection signal="toggled" from="VBoxContainer/PixelPerfectButton" to="." method="_on_PixelPerfectButton_toggled"]
+[connection signal="toggled" from="VBoxContainer/IntegerScalingButton" to="." method="_on_IntegerScalingButton_toggled"]

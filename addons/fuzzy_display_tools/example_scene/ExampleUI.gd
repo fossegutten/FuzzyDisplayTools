@@ -5,6 +5,7 @@ extends Control
 
 func _ready():
 	$VBoxContainer/PixelPerfectButton.pressed = FuzzyViewportScaler.pixel_perfect
+	$VBoxContainer/IntegerScalingButton.pressed = FuzzyViewportScaler.integer_scaling
 	$VBoxContainer/ScaleModeOptionButton.selected = FuzzyViewportScaler.get_scale_mode()
 
 
@@ -15,6 +16,7 @@ func _process(delta):
 	l.text += "\nMain Viewport res: %s" % [$"/root".get_viewport().size]
 	l.text += "\nMain Viewport scale: %s" % [FuzzyViewportScaler.viewport_scale]
 	l.text += "\nPixel perfect: %s" % [FuzzyViewportScaler.pixel_perfect]
+	l.text += "\nInteger scaling: %s" % [FuzzyViewportScaler.integer_scaling]
 	l.text += "\nP1 controls: Arrow keys"
 	l.text += "\nP2 controls: WASD"
 
@@ -29,3 +31,7 @@ func _on_PixelPerfectButton_toggled(button_pressed):
 
 func _on_ScaleModeOptionButton_item_selected(index):
 	FuzzyViewportScaler.set_scale_mode(index)
+
+
+func _on_IntegerScalingButton_toggled(button_pressed):
+	FuzzyViewportScaler.set_integer_scaling(button_pressed)

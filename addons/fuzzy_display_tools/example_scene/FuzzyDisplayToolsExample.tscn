@@ -29,7 +29,6 @@ handle_input_locally = false
 usage = 0
 render_target_update_mode = 3
 script = ExtResource( 3 )
-reset_size_button = false
 
 [node name="ExampleUI" parent="CanvasLayer/FuzzyViewportContainer/FuzzyViewport" instance=ExtResource( 6 )]
 

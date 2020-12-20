@@ -46,7 +46,6 @@ window/size/width=640
 window/size/height=360
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
-fuzzy_display_tools/scale_mode=2
 
 [editor_plugins]
 
