@@ -43,19 +43,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PixelPerfectButton" type="CheckButton" parent="VBoxContainer"]
+[node name="AspectRatioButton" type="OptionButton" parent="VBoxContainer"]
 margin_top = 48.0
 margin_right = 174.0
-margin_bottom = 88.0
+margin_bottom = 68.0
+text = "16/9"
+items = [ "16/9", null, false, 0, null, "21/9", null, false, 1, null, "4/3", null, false, 2, null, "16/10", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PixelPerfectButton" type="CheckButton" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 174.0
+margin_bottom = 112.0
 text = "Pixel Perfect"
 
 [node name="IntegerScalingButton" type="CheckButton" parent="VBoxContainer"]
-margin_top = 92.0
+margin_top = 116.0
 margin_right = 174.0
-margin_bottom = 132.0
+margin_bottom = 156.0
 text = "Integer Scaling"
 
 [connection signal="pressed" from="VBoxContainer/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]
 [connection signal="item_selected" from="VBoxContainer/ScaleModeOptionButton" to="." method="_on_ScaleModeOptionButton_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/AspectRatioButton" to="." method="_on_AspectRatioButton_item_selected"]
 [connection signal="toggled" from="VBoxContainer/PixelPerfectButton" to="." method="_on_PixelPerfectButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/IntegerScalingButton" to="." method="_on_IntegerScalingButton_toggled"]

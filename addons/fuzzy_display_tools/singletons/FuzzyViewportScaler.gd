@@ -15,18 +15,19 @@ onready var viewport = get_viewport()
 onready var game_size : Vector2 = Vector2(
 		ProjectSettings.get("display/window/size/width"), 
 		ProjectSettings.get("display/window/size/height")
-)
+) setget set_game_size, get_game_size
 
 enum ScaleMode {
 	STRETCH,
 	KEEP_ASPECT,
 }
 
-export(ScaleMode) var scale_mode : int = ScaleMode.STRETCH setget set_scale_mode, get_scale_mode
+# Default values should same as default values in project manager ( first index / false )
+export(ScaleMode) var scale_mode : int = 0 setget set_scale_mode, get_scale_mode
 export(bool) var pixel_perfect : bool = false setget set_pixel_perfect, is_pixel_perfect_enabled
-export(bool) var integer_scaling : bool = true setget set_integer_scaling, is_integer_scaling_enabled
+export(bool) var integer_scaling : bool = false setget set_integer_scaling, is_integer_scaling_enabled
 
-var viewport_scale : float = 1.0
+var viewport_scale : int = 1 setget ,get_viewport_scale
 
 
 func _ready():
@@ -37,8 +38,13 @@ func _ready():
 	if ProjectSettings.has_setting("display/fuzzy_display_tools/scale_mode"):
 		scale_mode = ProjectSettings.get("display/fuzzy_display_tools/scale_mode")
 	if ProjectSettings.has_setting("display/fuzzy_display_tools/integer_scaling"):
-		scale_mode = ProjectSettings.get("display/fuzzy_display_tools/integer_scaling")
+		integer_scaling = ProjectSettings.get("display/fuzzy_display_tools/integer_scaling")
 	
+	update_viewport_rect()
+
+
+func set_game_size(value : Vector2) -> void:
+	game_size = value
 	update_viewport_rect()
 
 
@@ -57,6 +63,10 @@ func set_scale_mode(value : int) -> void:
 	update_viewport_rect()
 
 
+func get_game_size() -> Vector2:
+	return game_size
+
+
 func is_pixel_perfect_enabled() -> bool:
 	return pixel_perfect
 
@@ -69,6 +79,10 @@ func get_scale_mode() -> int:
 	return scale_mode
 
 
+func get_viewport_scale() -> int:
+	return viewport_scale
+
+
 func update_viewport_rect() -> void:
 	if !is_inside_tree():
 		return
@@ -77,9 +91,9 @@ func update_viewport_rect() -> void:
 	var aspect_ratio : float = game_size.x / game_size.y
 	
 	if pixel_perfect:
-		viewport_scale = 1.0
+		viewport_scale = 1
 	else:
-		viewport_scale = floor(max(1, min(window_size.x / game_size.x, window_size.y / game_size.y)))
+		viewport_scale = int(floor(max(1, min(window_size.x / game_size.x, window_size.y / game_size.y))))
 	
 	# TODO calculate game width / height to fit screen, in keep height / width modes
 	get_viewport().size = viewport_scale * game_size

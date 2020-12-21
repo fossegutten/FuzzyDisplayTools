@@ -35,3 +35,23 @@ func _on_ScaleModeOptionButton_item_selected(index):
 
 func _on_IntegerScalingButton_toggled(button_pressed):
 	FuzzyViewportScaler.set_integer_scaling(button_pressed)
+
+
+func _on_AspectRatioButton_item_selected(index):
+	var text : String = $VBoxContainer/ResOptionButton.get_item_text(index)
+	var size := Vector2.ZERO
+	
+	if text == "16/9":
+		size = Vector2(640,360)
+	if text == "21/9":
+		size = Vector2(860, 360)
+	if text == "4/3":
+		size = Vector2(480, 360)
+	if text == "16/10":
+		size = Vector2(576, 360)
+	
+	if !size.is_equal_approx(Vector2.ZERO):
+		FuzzyViewportScaler.game_size = size
+		FuzzyViewportScaler.update_viewport_rect()
+	else:
+		printerr("Could not update resolution to: %s" % size)
