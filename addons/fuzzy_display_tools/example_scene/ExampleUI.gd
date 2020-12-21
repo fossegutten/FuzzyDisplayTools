@@ -38,7 +38,7 @@ func _on_IntegerScalingButton_toggled(button_pressed):
 
 
 func _on_AspectRatioButton_item_selected(index):
-	var text : String = $VBoxContainer/ResOptionButton.get_item_text(index)
+	var text : String = $VBoxContainer/AspectRatioButton.get_item_text(index)
 	var size := Vector2.ZERO
 	
 	if text == "16/9":
